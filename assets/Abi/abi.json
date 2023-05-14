@@ -1,0 +1,1249 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_tokenAddress",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor",
+        "name": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_driverName",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_bidAmount",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_carModel",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_bidIndex",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_driver",
+                "type": "address"
+            }
+        ],
+        "name": "RideAccepted",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_rider",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_driver",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_riderName",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_driverName",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_fare",
+                "type": "uint256"
+            }
+        ],
+        "name": "RideCompleted",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_driverName",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_bidAmount",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "_carModel",
+                "type": "string"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_driver",
+                "type": "address"
+            }
+        ],
+        "name": "RideStarted",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rideId",
+                "type": "uint256"
+            }
+        ],
+        "name": "acceptRide",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rideId",
+                "type": "uint256"
+            }
+        ],
+        "name": "completeRide",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_phoneNumber",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_carBrand",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_carModel",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_carType",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_numberPlate",
+                "type": "string"
+            }
+        ],
+        "name": "createDriver",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_phoneNumber",
+                "type": "string"
+            }
+        ],
+        "name": "createRider",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getBids",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "bidAmount",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "driver",
+                        "type": "address"
+                    }
+                ],
+                "internalType": "struct Bids.Bid[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getCurrentRideofDriver",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getCurrentRideofRider",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getDriverDetails",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "phoneNumber",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "carBrand",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "carModel",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "enum Driver.cType",
+                        "name": "carType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "numberPlate",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "fareMeter",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "verified",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct Driver.DriverDetails",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_driver",
+                "type": "address"
+            }
+        ],
+        "name": "getDriverDetails",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "phoneNumber",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "carBrand",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "carModel",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "enum Driver.cType",
+                        "name": "carType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "numberPlate",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "fareMeter",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "verified",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct Driver.DriverDetails",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_driver",
+                "type": "address"
+            }
+        ],
+        "name": "getDriverName",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getDrivers",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "phoneNumber",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "carBrand",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "carModel",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "enum Driver.cType",
+                        "name": "carType",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "numberPlate",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "fareMeter",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "verified",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct Driver.DriverDetails[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "minFare",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "maxFare",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct Fare.FareRange",
+                "name": "fareRange",
+                "type": "tuple"
+            },
+            {
+                "internalType": "uint8",
+                "name": "fareMeter",
+                "type": "uint8"
+            }
+        ],
+        "name": "getFare",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "pure",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_driver",
+                "type": "address"
+            }
+        ],
+        "name": "getFareMeter",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_distance",
+                "type": "uint256"
+            }
+        ],
+        "name": "getFareRange",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "minFare",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "maxFare",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct Fare.FareRange",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_distance",
+                "type": "uint256"
+            }
+        ],
+        "name": "getMaxFare",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rideId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getRide",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "rideId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "rider",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "driver",
+                        "type": "address"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "latitude",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "longitude",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct Location.Coordinate",
+                        "name": "source",
+                        "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "latitude",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "longitude",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct Location.Coordinate",
+                        "name": "destination",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "endTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "minFare",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "maxFare",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct Fare.FareRange",
+                        "name": "fareRange",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "fare",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "paid",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "ratingByRider",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "ratingByDriver",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "enum RideBooking.RideStatus",
+                        "name": "status",
+                        "type": "uint8"
+                    }
+                ],
+                "internalType": "struct RideBooking.Ride",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getRideRequests",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "rideId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "rider",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "driver",
+                        "type": "address"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "latitude",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "longitude",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct Location.Coordinate",
+                        "name": "source",
+                        "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "latitude",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "longitude",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct Location.Coordinate",
+                        "name": "destination",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "endTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "minFare",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "maxFare",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct Fare.FareRange",
+                        "name": "fareRange",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "fare",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "paid",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "ratingByRider",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "ratingByDriver",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "enum RideBooking.RideStatus",
+                        "name": "status",
+                        "type": "uint8"
+                    }
+                ],
+                "internalType": "struct RideBooking.Ride[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_rider",
+                "type": "address"
+            }
+        ],
+        "name": "getRiderDetails",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "phone",
+                        "type": "string"
+                    }
+                ],
+                "internalType": "struct Rider.RiderDetails",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getRiderDetails",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "phone",
+                        "type": "string"
+                    }
+                ],
+                "internalType": "struct Rider.RiderDetails",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_rider",
+                "type": "address"
+            }
+        ],
+        "name": "getRiderName",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getRiders",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "phone",
+                        "type": "string"
+                    }
+                ],
+                "internalType": "struct Rider.RiderDetails[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getRides",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "rideId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "rider",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "driver",
+                        "type": "address"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "latitude",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "longitude",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct Location.Coordinate",
+                        "name": "source",
+                        "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "latitude",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "longitude",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct Location.Coordinate",
+                        "name": "destination",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "endTime",
+                        "type": "uint256"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "minFare",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "maxFare",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct Fare.FareRange",
+                        "name": "fareRange",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "fare",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "paid",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "ratingByRider",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "ratingByDriver",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "enum RideBooking.RideStatus",
+                        "name": "status",
+                        "type": "uint8"
+                    }
+                ],
+                "internalType": "struct RideBooking.Ride[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_sourceLat",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_sourceLong",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "__destinationLat",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "_destinationLong",
+                "type": "string"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_distance",
+                "type": "uint256"
+            }
+        ],
+        "name": "requestRide",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rideId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_bidIndex",
+                "type": "uint256"
+            }
+        ],
+        "name": "selectDriver",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_tokenAddress",
+                "type": "address"
+            }
+        ],
+        "name": "setTokenAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_baseFare",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_pricePerKm",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_maxFareMultiplier",
+                "type": "uint256"
+            }
+        ],
+        "name": "setValues",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_rideId",
+                "type": "uint256"
+            }
+        ],
+        "name": "startRide",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalRides",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_phoneNumber",
+                "type": "string"
+            }
+        ],
+        "name": "updateDriverContact",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_name",
+                "type": "string"
+            }
+        ],
+        "name": "updateDriverName",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint8",
+                "name": "_fareMeter",
+                "type": "uint8"
+            }
+        ],
+        "name": "updateFareMeter",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_phoneNumber",
+                "type": "string"
+            }
+        ],
+        "name": "updateRiderContact",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "string",
+                "name": "_name",
+                "type": "string"
+            }
+        ],
+        "name": "updateRiderName",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "driver_id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "_verified",
+                "type": "bool"
+            }
+        ],
+        "name": "verifyDriver",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
